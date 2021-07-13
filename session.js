@@ -1,20 +1,20 @@
 const cookieSession = require('cookie-session')
 
-const cookie = (secret) => cookieSession({
+const cookie = (secret, maxAgeMinutes) => cookieSession({
 	name: 's',
 	secret: secret,
 	//process.env.COOKIE_SECRET,
 	sameSite: 'strict',
 	httpOnly: true,
 	secure: false,
-	maxAge: 1 * 60 * 60 * 1000 // 1 hours
+	maxAge: maxAgeMinutes * 60 * 1000 // 1 hours
 })
 
 const readSession = (req, res, next) => {
 	if (req.session && req.session.token)
 	{
 		const [timestamp, email] = req.session.token.split('|')
-		if (parseInt(timestamp) + 2 >= parseInt(Date.now() /60e3))
+		if (parseInt(timestamp) + (req.sessionOptions.maxAge /60e3) >= parseInt(Date.now() /60e3))
 		{
 			res.locals.login = email
 			//extend session by minute
