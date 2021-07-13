@@ -26,4 +26,4 @@ app.use('/', loginRoute)
 app.get('/', (req, res) => res.sendFile(path.join(__dirname, '/public/index.htm')))
 app.use(errorHandler)
 
-app.listen(3001, () => console.info('Server started'))
+app.listen(process.env.PORT, () => console.info('Server started'))
