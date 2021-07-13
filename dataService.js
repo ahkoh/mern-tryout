@@ -19,7 +19,6 @@ exports.registerAsync = async (firstName, lastName, email, password) => {
 		messages: []
 	})
 	await account.save() //try catch
-	console.log('registered', account)
 }
 
 exports.getMessagesAsync = async (email) => {
@@ -48,6 +47,5 @@ exports.delMessageAsync = async (email, message) => {
 			entity.messages.pull(message)
 			await entity.save()
 		}
-		console.log('del', i, entity.messages)
 	}
 }

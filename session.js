@@ -7,7 +7,7 @@ const cookie = (secret, maxAgeMinutes) => cookieSession({
 	sameSite: 'strict',
 	httpOnly: true,
 	secure: false,
-	maxAge: maxAgeMinutes * 60 * 1000 // 1 hours
+	maxAge: parseInt(maxAgeMinutes) * 60 * 1000 // 1 hours
 })
 
 const readSession = (req, res, next) => {
@@ -31,7 +31,7 @@ function isUser(req, res, next) {
 		res.status(401).send({"OK": 0, "Error": "You are not logged in or session is expired."})
 }
 
-exports.middleware = (secret) => [cookie(secret), readSession]
+exports.middleware = (secret, expire_minutes) => [cookie(secret, expire_minutes), readSession]
 
 exports.checkLogin =  (req, res, next) => {
 	if (res.locals.login)
