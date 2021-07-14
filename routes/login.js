@@ -17,6 +17,7 @@ route.post('/login', async (req, res) => {
 		const entity = await dataService.findOneAsync(req.body.email)
 		req.session.token = `${parseInt(Date.now() /60e3)}|${req.body.email}`
 		res.set('Cache-Control', 'no-store')
+		res.set('Access-Control-Allow-Headers', 'Set-Cookie')
 		res.send({"OK": `Hi ${entity.firstName} ${entity.lastName}, welcome back.`})
 	} else {
 		res.status(401).send({"Error": "Login failed. Please check email or password."})

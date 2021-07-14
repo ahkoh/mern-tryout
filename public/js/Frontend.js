@@ -19,8 +19,8 @@ toastr.options = {
 };
 
 var _wc = axios.create({
-	baseURL: '/',
-	timeout: 1000,
+	baseURL:'https://abc.com/',
+	timeout: 10000,
 	headers: { 'X-Custom-Header': 'foobar' }
 });
 
