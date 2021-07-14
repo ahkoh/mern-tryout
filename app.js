@@ -19,7 +19,7 @@ mongoose.connect(
 
 const app = express()
 app.disable('x-powered-by')
-app.set('trust proxy', 'loopback')
+app.enable('trust proxy')
 app.use(cors({'credentials': true, 'origin':process.env.CORS_ORIGIN}))
 app.use(express.static('public'))
 app.use(express.json({extended: true}))
