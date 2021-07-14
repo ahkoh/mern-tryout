@@ -4,6 +4,7 @@ const messageRoute = require('./routes/messages')
 const loginRoute = require('./routes/login')
 const session = require('./session')
 const errorHandler = require('./errorHandler')
+const cors = require('cors')
 const path = require('path')
 require("dotenv/config")
 
