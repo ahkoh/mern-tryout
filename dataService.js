@@ -5,11 +5,6 @@ exports.findOneAsync = async (email) => {
 	return account
 }
 
-exports.loginAsync = async (email, password) => {
-	const entity = await this.findOneAsync(email)
-	return (entity && entity.password === password)
-}
-
 exports.registerAsync = async (firstName, lastName, email, password) => {
 	const account = new Account({
 		firstName,

@@ -40,14 +40,13 @@ var Todos = function Todos(_ref2) {
 	    _inputDisabled = _React$useState4[0],
 	    setInputDisabled = _React$useState4[1];
 
-	var _container = React.createRef();
 	var _input = React.createRef();
 
 	var removeItem = function removeItem(text) {
 		setTodos(todos.filter(function (item) {
 			return item !== text;
 		}));
-		_input.current.setCustomValidity("");
+		_input.current && _input.current.setCustomValidity("");
 	};
 
 	React.useEffect(function () {
@@ -63,7 +62,6 @@ var Todos = function Todos(_ref2) {
 	}, []);
 
 	React.useEffect(function () {
-		_container.current.scrollTop = _container.current.scrollHeight;
 		_input.current.focus();
 	}, [todos]);
 
@@ -79,9 +77,9 @@ var Todos = function Todos(_ref2) {
 		_wc.post('messages', { "message": el.value }).then(function (response) {
 			setTodos(todos.concat(el.value));
 			el.value = '';
-			_inputDisabled;
 		}).finally(function () {
 			setInputDisabled('');
+			document.getElementsByTagName('ul')[0].scrollTop = document.getElementsByTagName('ul')[0].scrollHeight;
 			el.focus();
 		});
 	};
@@ -129,7 +127,7 @@ var Todos = function Todos(_ref2) {
 					{ className: "task" },
 					React.createElement(
 						"ul",
-						{ ref: _container },
+						null,
 						todos.map(function (item) {
 							return React.createElement(TodoItem, { key: item, text: item, removeItem: removeItem });
 						})
