@@ -14,7 +14,7 @@ User navigates to https://koh-web.netlify.app/ in web browser for all the user i
 
 ![Diagram](https://raw.githubusercontent.com/ahkoh/mern-tryout/main/README_diagram.jpg)
 
-## localhost instructions
+## localhost (web+app) instructions
 1. git clone this repo
 1. copy .env-sample into .env then edit
 1. run "npm install"
