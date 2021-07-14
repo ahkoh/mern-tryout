@@ -10,7 +10,7 @@ System admin can manage deployments from Netlify and Heroku online console, and 
 
 ## End Users
 
-User navigates to https://koh-web.netlify.app/ (static web only) in web browser for all the user interface (UI). Underhood the action requests are sent to https://koh-app.herokuapp.com/ (REST API server), while UI responses will be handled at client-side at https://koh-web.netlify.app/ .
+User navigates to https://koh-web.netlify.app/ (static web / web tier) in web browser for all the user interface (UI). Underhood the action requests are sent to https://koh-app.herokuapp.com/ (REST API server / app tier), while UI responses will be handled at client-side at https://koh-web.netlify.app/ .
 
 ![Diagram](https://raw.githubusercontent.com/ahkoh/mern-tryout/main/README_diagram.jpg)
 
