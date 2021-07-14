@@ -19,7 +19,6 @@ const readSession = (req, res, next) => {
 			res.locals.login = email
 			//extend session by minute
 			req.session.token = `${parseInt(Date.now() /60e3)}|${email}`
-			res.set('Access-Control-Allow-Headers', 'Set-Cookie')
 		}
 	}
 	next()

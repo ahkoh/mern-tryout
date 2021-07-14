@@ -19,9 +19,10 @@ toastr.options = {
 };
 
 var _wc = axios.create({
-	baseURL:'https://abc.com/',
+	baseURL:'/',
 	timeout: 10000,
-	headers: { 'X-Custom-Header': 'foobar' }
+	withCredentials: true,
+	headers: { 'X-Custom-Header': 'MERN' }
 });
 
 _wc.interceptors.response.use(function (response) {

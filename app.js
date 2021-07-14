@@ -19,7 +19,7 @@ mongoose.connect(
 
 const app = express()
 app.disable('x-powered-by')
-app.use(cors())
+app.use(cors({'credentials': true, 'origin':process.env.CORS_ORIGIN}))
 app.use(express.static('public'))
 app.use(express.json({extended: true}))
 app.use(session.middleware(process.env.COOKIE_SECRET, process.env.COOKIE_EXPIRE_MINUTE))
