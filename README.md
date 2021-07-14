@@ -13,3 +13,10 @@ System admin can manage deployments from Netlify and Heroku online console, and 
 User navigates to https://koh-web.netlify.app/ in web browser for all the user interface (UI). Underhood the action requests are sent to https://koh-app.herokuapp.com/, while UI responses will be handled at client-side at https://koh-web.netlify.app/ .
 
 ![Diagram](https://raw.githubusercontent.com/ahkoh/mern-tryout/main/README_diagram.jpg)
+
+## localhost instructions
+1. git clone this repo
+1. copy .env-sample into .env then edit
+1. run "npm install"
+1. inside session.js, change secure cookie to false
+1. run "npm start"
