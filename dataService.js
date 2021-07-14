@@ -25,7 +25,7 @@ exports.getMessagesAsync = async (email) => {
 
 exports.addMessageAsync = async (email, message) => {
 	const entity = await this.findOneAsync(email)
-	if (entity)
+	if (entity && entity.messages.indexOf(message) == -1)
 	{
 		entity.messages.push(message)
 		await entity.save()
