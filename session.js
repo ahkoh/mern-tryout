@@ -4,9 +4,9 @@ const cookie = (secret, maxAgeMinutes) => cookieSession({
 	name: 's',
 	secret: secret,
 	//process.env.COOKIE_SECRET,
-	sameSite: 'strict',
+	// secure: false, sameSite: 'strict',
+	secure: true, sameSite: 'none',
 	httpOnly: true,
-	secure: false,
 	maxAge: parseInt(maxAgeMinutes) * 60 * 1000 // 1 hours
 })
 
